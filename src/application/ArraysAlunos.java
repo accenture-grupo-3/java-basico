@@ -14,7 +14,7 @@ public class ArraysAlunos {
 	}
 	
 	public void aumentaCapacidade() {
-		Aluno[] alunosNovo = new Aluno[alunos.length + 10];
+		Aluno[] alunosNovo = new Aluno[tamanho*2];
 
 			 for (int i = 0; i<alunos.length; i++) {
 				 alunosNovo[i] = alunos[i];
@@ -65,13 +65,6 @@ public class ArraysAlunos {
 			return;
 			}
 		}
-		
-		
-		
-		/*
-		 * for(Aluno aluno : alunos) { if (aluno.getCpf().equals(numCPF)) { aluno =
-		 * null; } }
-		 */
 	}
 	
 	public void transfereElementos(int indice) {
@@ -79,6 +72,7 @@ public class ArraysAlunos {
 			alunos[i] = alunos[i+1];
 		}
 		alunos[alunos.length - 2 ] = alunos[alunos.length-1];
+		alunos[alunos.length - 1 ] = null;
 	}
 
 	public int getIndice() {
