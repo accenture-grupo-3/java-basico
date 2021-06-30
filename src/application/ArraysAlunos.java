@@ -55,7 +55,7 @@ public class ArraysAlunos {
 		
 		for (int i = 0; i < alunos.length; i++) {
 			if (alunos[i].getCpf().equals(numCPF)) {
-				if(i == alunos.length) {
+				if(i == alunos.length - 1) {
 					alunos[i] = null;
 					
 				} else {

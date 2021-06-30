@@ -2,7 +2,9 @@ package application;
 
 import entities.Aluno;
 import entities.Curso;
-//import entities.RepositorioAlunosArray;
+import entities.Professor;
+import entities.Pessoa;
+import entities.RepositorioPessoasArray;
 
 public class Program {
 
@@ -14,16 +16,22 @@ public class Program {
 		Aluno b = new Aluno("josé", "234.567", 16, c);
 		Aluno aa = new Aluno("Kelly", "258.369", 30, c);
 		Aluno aaa = new Aluno("Camila", "147.963", 25, c);
-		ArraysAlunos arr = new ArraysAlunos(3);
 		
-		arr.inserir(aaa);
-		arr.inserir(aa);
-		arr.inserir(a);
-		arr.inserir(b);
-		arr.exibir();
-		System.out.println(arr.procurar("147.963"));
-		arr.remover("123.456");
-		arr.exibir();
+		Professor juliana = new Professor("Juliana", "147.963", 25, 1100.0);
+		
+		Pessoa p = new Pessoa("Pessoa", "147.963", 25);
+		
+		//System.out.println(p);
+		
+		
+		RepositorioPessoasArray arr = new RepositorioPessoasArray();
+		
+		arr.inserirPessoa(a);
+		arr.inserirPessoa(juliana);
+		arr.inserirPessoa(p);
+		
+		
+		arr.exibeLista();
 		
 		
 		
@@ -38,6 +46,8 @@ public class Program {
 		arr.exibeLista();
 		arr.removerAluno("123.456");
 		arr.exibeLista();*/
+		
+		
 	
 	}
 
