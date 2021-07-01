@@ -3,8 +3,9 @@ package application;
 import entities.Aluno;
 import entities.Curso;
 import entities.Professor;
+import estruturaDeDados.RepositorioAlunosArray;
+import estruturaDeDados.RepositorioPessoasArray;
 import entities.Pessoa;
-import entities.RepositorioPessoasArray;
 
 public class Program {
 
@@ -12,41 +13,58 @@ public class Program {
 		
 		
 		Curso c = new Curso(1, "Programação");
-		Aluno a = new Aluno("João", "123.456", 16, c);
-		Aluno b = new Aluno("josé", "234.567", 16, c);
-		Aluno aa = new Aluno("Kelly", "258.369", 30, c);
-		Aluno aaa = new Aluno("Camila", "147.963", 25, c);
-		
+		Aluno joao = new Aluno("João", "123.456", 16, c);
+		Aluno jose = new Aluno("José", "234.567", 16, c);
+		Aluno maria = new Aluno("Maria", "258.369", 30, c);
+		Aluno camila = new Aluno("Camila", "147.963", 25, c);		
 		Professor juliana = new Professor("Juliana", "147.963", 25, 1100.0);
 		
 		Pessoa p = new Pessoa("Pessoa", "147.963", 25);
 		
-		//System.out.println(p);
+		
+		//cria lista de alunos
+		RepositorioAlunosArray alunos = new RepositorioAlunosArray(3);
+		
+
+		alunos.inserir(joao);
+		alunos.inserir(jose);
+		alunos.inserir(maria);
+		alunos.inserir(camila);
+		alunos.exibir();
+		
+		System.out.println("==============================================");
+		
+		System.out.println(alunos.procurar("123.456"));
+		
+		System.out.println("==============================================");
+		
+		alunos.remover("123.456");
+		alunos.exibir();
 		
 		
-		RepositorioPessoasArray arr = new RepositorioPessoasArray();
+		System.out.println("==============================================");
 		
-		arr.inserirPessoa(a);
-		arr.inserirPessoa(juliana);
-		arr.inserirPessoa(p);
+		//criar lista de pessoas
+		RepositorioPessoasArray pessoas = new RepositorioPessoasArray(3);
 		
-		
-		arr.exibeLista();
-		
-		
-		
+		pessoas.inserir(joao);
+		pessoas.inserir(juliana);
+		pessoas.inserir(p);
+		pessoas.exibir();
 		
 		
+		System.out.println("==============================================");
 		
-		/*RepositorioAlunosArray arr = new RepositorioAlunosArray();
+		pessoas.remover("123.456");
+		pessoas.exibir();
 		
-		arr.inserirAluno(a);
-		arr.inserirAluno(b);
-		System.out.println(arr.procurarAluno("123.456"));
-		arr.exibeLista();
-		arr.removerAluno("123.456");
-		arr.exibeLista();*/
 		
+		
+		
+		
+		
+		
+				
 		
 	
 	}

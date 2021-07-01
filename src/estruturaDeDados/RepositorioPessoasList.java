@@ -1,9 +1,11 @@
-package entities;
+package estruturaDeDados;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepositorioPessoasArray {
+import entities.Pessoa;
+
+public class RepositorioPessoasList {
 	private List<Pessoa> Pessoas = new ArrayList<>();
 	
 
