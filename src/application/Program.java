@@ -19,7 +19,7 @@ public class Program {
 		Aluno camila = new Aluno("Camila", "147.963", 25, c);		
 		Professor juliana = new Professor("Juliana", "147.963", 25, 1100.0);
 		
-		Pessoa p = new Pessoa("Pessoa", "147.963", 25);
+		Pessoa p = new Pessoa("Pessoal", "147.963", 25);
 		
 		
 		//cria lista de alunos
