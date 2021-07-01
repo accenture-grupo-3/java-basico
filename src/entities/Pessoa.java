@@ -40,9 +40,7 @@ public class Pessoa {
 		this.idade = idade;
 	}
 	
-	
 	public String toString() {
-		return "Nome: "+ this.getNome();
+		return "Nome: "+ this.getNome() + "\nCPF: " + this.getCpf() + "\nIdade: " + this.getIdade();
 	}
-
 }

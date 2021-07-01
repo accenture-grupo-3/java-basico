@@ -17,5 +17,11 @@ public class Professor extends Pessoa{
 		this.salario = salario;
 	}
 	
+	public String toString() {
+		return  super.toString() + "\nSalario: "+ this.getSalario();
+	}
+	
+	
+	
 
 }
