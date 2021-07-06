@@ -1,6 +1,6 @@
-package estruturaDeDados;
+package dados;
 
-import entities.Aluno;
+import negocio.Aluno;
 
 public class RepositorioAlunosArray{
 	private int tamanho;

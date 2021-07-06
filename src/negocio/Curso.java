@@ -1,4 +1,4 @@
-package entities;
+package negocio;
 
 public class Curso {
 	private int codigo;

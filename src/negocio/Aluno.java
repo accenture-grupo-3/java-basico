@@ -1,4 +1,4 @@
-package entities;
+package negocio;
 
 public class Aluno extends Pessoa{
 	private Curso curso;

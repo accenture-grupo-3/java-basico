@@ -1,8 +1,9 @@
-package estruturaDeDados;
+package dados;
 
-import entities.Pessoa;
+import negocio.Pessoa;
+import negocio.RepositorioPessoas;
 
-public class RepositorioPessoasArray{
+public class RepositorioPessoasArray implements RepositorioPessoas{
 	private int tamanho;
 	private Pessoa[] Pessoas;
 	private int indice = 0;
@@ -24,7 +25,7 @@ public class RepositorioPessoasArray{
 		}
 	
 	
-	public void inserir(Pessoa a) {
+	public void inserirPessoa(Pessoa a) {
 		
 		if (Pessoas[Pessoas.length - 1] != null) {
 			aumentaCapacidade();
@@ -34,13 +35,16 @@ public class RepositorioPessoasArray{
 		this.indice++;
 	}
 	
-	public void exibir() {
+	@Override
+	public String toString() {
+		String s = "";
 		for(int i = 0; i < indice; i++) {
-			System.out.println(Pessoas[i]);
+			s = s + Pessoas[i] + "\n";
 		}
+		return s;
 	}
 	
-	public Pessoa procurar(String numCPF) {
+	public Pessoa procurarPessoa(String numCPF) {
 		Pessoa alun = null;
 		for(int i = 0; i < indice; i++) {
 			if (Pessoas[i].getCpf().equals(numCPF)) {
@@ -50,7 +54,7 @@ public class RepositorioPessoasArray{
 		return alun;
 	}
 	
-	public void remover(String numCPF) {
+	public void removerPessoa(String numCPF) {
 		
 		
 		for (int i = 0; i < Pessoas.length; i++) {

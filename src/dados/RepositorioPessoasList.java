@@ -1,11 +1,11 @@
-package estruturaDeDados;
+package dados;
 
 import java.util.ArrayList;
 import java.util.List;
+import negocio.RepositorioPessoas;
+import negocio.Pessoa;
 
-import entities.Pessoa;
-
-public class RepositorioPessoasList {
+public class RepositorioPessoasList implements RepositorioPessoas{
 	private List<Pessoa> Pessoas = new ArrayList<>();
 	
 
@@ -34,7 +34,7 @@ public class RepositorioPessoasList {
 		}
 		Pessoas.remove(a);
 	}
-	public void exibeLista() {
+	public void listarPessoas() {
 		for (Pessoa Pessoa : Pessoas) {
 			System.out.println(Pessoa);
 		}
