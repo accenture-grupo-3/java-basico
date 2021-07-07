@@ -1,13 +1,14 @@
 package application;
 
-import dados.RepositorioAlunosArray;
+import java.util.Scanner;
+
+import dados.CadastroRepetidoException;
 import dados.RepositorioPessoasArray;
 import dados.RepositorioPessoasList;
+import dados.UsuarioNaoEncontradoException;
 import negocio.Aluno;
 import negocio.Curso;
-import negocio.Pessoa;
 import negocio.Professor;
-import java.util.Scanner;
 
 public class Program {
 	private static RepositorioPessoasArray array = new RepositorioPessoasArray(5);
@@ -18,10 +19,15 @@ public class Program {
 		Curso c = new Curso(1, "Programação");
 		Aluno joao = new Aluno("João", "123.456", 16, c);
 		Aluno jose = new Aluno("José", "234.567", 16, c);
-		array.inserirPessoa(joao);
-		list.inserirPessoa(joao);
-		array.inserirPessoa(jose);
-		list.inserirPessoa(jose);
+		try {
+			array.inserirPessoa(joao);
+			list.inserirPessoa(joao);
+			array.inserirPessoa(jose);
+			list.inserirPessoa(jose);
+		}catch(CadastroRepetidoException l) {
+			System.out.println(l.getMessage());
+		}
+		
 		/*Aluno jose = new Aluno("José", "234.567", 16, c);
 		Aluno maria = new Aluno("Maria", "258.369", 30, c);
 		Aluno camila = new Aluno("Camila", "147.963", 25, c);		
@@ -101,6 +107,7 @@ public class Program {
 			}
 		}while(opcao!=5);
 		System.out.println("Adeus!");
+		input.close();
 	}
 
 	public static void adicionar(Curso curso) {
@@ -130,9 +137,14 @@ public class Program {
 				System.out.print("Insira a idade do aluno: ");
 				idade = input.nextInt();
 				Aluno A = new Aluno(nome, cpf, idade, curso);
-				System.out.print(A.toString());
-				array.inserirPessoa(A);
-				list.inserirPessoa(A);
+				/*System.out.print(A.toString());*/
+				try {
+					array.inserirPessoa(A);
+					list.inserirPessoa(A);
+				}catch(CadastroRepetidoException e) {
+					System.out.println(e.getMessage());
+				}
+				
 				break;
 			case 2:
 				System.out.print("\nInsira o nome do professor: ");
@@ -144,13 +156,18 @@ public class Program {
 				System.out.println("\nInsira a salario do professor: ");
 				salario = input.nextDouble();
 				Professor P = new Professor(nome, cpf, idade, salario);
-				array.inserirPessoa(P);
-				list.inserirPessoa(P);
+				try {
+					array.inserirPessoa(P);
+					list.inserirPessoa(P);
+				}catch(CadastroRepetidoException c) {
+					System.out.println(c.getMessage());
+				}
 				break;
 			default:
 				break;
 			}
-		}while(opcao!=3);		
+		}while(opcao!=3);	
+		input.close();
 	}
 
 	public static void procurar() {
@@ -158,10 +175,14 @@ public class Program {
 		String cpf;
 		System.out.println("Digite o cpf: ");
 		cpf = input.next();
-		array.procurarPessoa(cpf);
-		list.procurarPessoa(cpf);
-		System.out.println(array.procurarPessoa(cpf));
-		System.out.println(list.procurarPessoa(cpf));
+		try {
+			System.out.println(array.procurarPessoa(cpf));
+			System.out.println(list.procurarPessoa(cpf));
+		}catch( UsuarioNaoEncontradoException c) {
+			System.out.println(c.getMessage());
+		}
+		input.close();
+		
 	}
 	
 	public static void remover() {
@@ -173,5 +194,8 @@ public class Program {
 		list.removerPessoa(cpf);
 		System.out.println(array.toString());
 		list.listarPessoas();
+		input.close();
 	}
+	
+	
 }

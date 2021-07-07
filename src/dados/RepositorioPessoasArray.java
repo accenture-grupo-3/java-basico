@@ -25,14 +25,25 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
 		}
 	
 	
-	public void inserirPessoa(Pessoa a) {
-		
+	public void inserirPessoa(Pessoa a) throws CadastroRepetidoException {
+
 		if (Pessoas[Pessoas.length - 1] != null) {
 			aumentaCapacidade();
 		}
-		
-		Pessoas[indice] = a;
-		this.indice++;
+		System.out.println(Pessoas.toString());
+		System.out.println(indice);
+		boolean encontrou = false;
+		for (int i = 0; i < indice; i++) {
+			if (Pessoas[i].getCpf().equals(a.getCpf())) {
+				encontrou = true;
+				throw new CadastroRepetidoException();
+			}
+
+		}
+		if(encontrou == false) {
+			Pessoas[indice] = a;
+			this.indice++;
+		}
 	}
 	
 	@Override
@@ -44,11 +55,13 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
 		return s;
 	}
 	
-	public Pessoa procurarPessoa(String numCPF) {
+	public Pessoa procurarPessoa(String numCPF) throws UsuarioNaoEncontradoException {
 		Pessoa alun = null;
-		for(int i = 0; i < indice; i++) {
+		System.out.println(indice);
+		for (int i = 0; i < indice; i++) {
 			if (Pessoas[i].getCpf().equals(numCPF)) {
-				alun = Pessoas[i];
+
+				return alun = Pessoas[i];
 			}
 		}
 		return alun;
