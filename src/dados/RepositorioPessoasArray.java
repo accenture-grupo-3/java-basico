@@ -30,8 +30,6 @@ public class RepositorioPessoasArray implements RepositorioPessoas{
 		if (Pessoas[Pessoas.length - 1] != null) {
 			aumentaCapacidade();
 		}
-		System.out.println(Pessoas.toString());
-		System.out.println(indice);
 		boolean encontrou = false;
 		for (int i = 0; i < indice; i++) {
 			if (Pessoas[i].getCpf().equals(a.getCpf())) {

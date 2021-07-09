@@ -158,20 +158,7 @@ public class PessoasDao {
 				String nome = rs.getString("nome");
 				int idade = rs.getInt("idade");
 				String curso = rs.getString("curso");
-				/*	PreparedStatement stmt2 = con.prepareStatement("SELECT * FROM tbcurso WHERE curso = ?");
-	            stmt2 = con.prepareStatement(sql);
-	            stmt2.setString(1, c);
-	            ResultSet rs2 = stmt2.executeQuery();
-
-          /*  while (rs2.next()) {
- 
- 
-                String nomecurso = rs.getString("nomecurso");
-                int codigo = rs.getInt("codigo");
- 
-                System.out.println("Cpf:- " + Cpf + " Nome:- " + nome + " Idade:- " + idade +
-                    " Curso:- " + curso);*/
-				System.out.println("Aluno com CPF " + Cpf + nome + idade + curso + " Procurado!");
+				System.out.println("Aluno com cpf " +  "   " + nome  + "   " + Cpf   + "   " +  idade  + "   " + curso   + "   " + "\nEncontrado!");
 			}
 
 		} catch (SQLException e) {
@@ -191,11 +178,8 @@ public class PessoasDao {
 				String Cpf = rs.getString("cpf");
 				int idade = rs.getInt("idade");
 				double salario = rs.getDouble("salario");
-				System.out.println("Professor com cpf " + nome + Cpf + idade + salario + "Procurado!");
+				System.out.println("Professor com cpf " +  "   " + nome  + "   " + Cpf   + "   " +  idade  + "   " + salario   + "   " + "\nEncontrado!");
 			}
-			// stmt.setString(1 , cpf);
-			// stmt.execute();
-			// stmt.close();
 
 		} catch (SQLException e) {
 			throw new RuntimeException(e);

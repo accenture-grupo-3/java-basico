@@ -26,57 +26,14 @@ public class Program {
 		Curso c = new Curso(1, "Programação");
 		Aluno joao = new Aluno("João", "123.456", 16, c);
 		Aluno jose = new Aluno("José", "234.567", 16, c);
-		// Professor Jarles = new Professor("Joyce","637.483",23,1042);
-		// Pessoa Jonas = new Pessoa("Firmino","725.653",23);
 		try {
-			array.inserirPessoa(joao);
+			array.inserirPessoa(joao); 
 			list.inserirPessoa(joao);
 			array.inserirPessoa(jose);
 			list.inserirPessoa(jose);
 		} catch (CadastroRepetidoException l) {
 			System.out.println(l.getMessage());
 		}
-
-		/*
-		 * Aluno jose = new Aluno("José", "234.567", 16, c); Aluno maria = new
-		 * Aluno("Maria", "258.369", 30, c); Aluno camila = new Aluno("Camila",
-		 * "147.963", 25, c); Professor juliana = new Professor("Juliana", "147.963",
-		 * 25, 1100.0);
-		 * 
-		 * Pessoa p = new Pessoa("Pessoal", "147.963", 25);
-		 * 
-		 * 
-		 * //cria lista de alunos RepositorioAlunosArray alunos = new
-		 * RepositorioAlunosArray(3);
-		 * 
-		 * 
-		 * alunos.inserir(joao); alunos.inserir(jose); alunos.inserir(maria);
-		 * alunos.inserir(camila); alunos.exibir();
-		 * 
-		 * System.out.println("==============================================");
-		 * 
-		 * System.out.println(alunos.procurar("123.456"));
-		 * 
-		 * System.out.println("==============================================");
-		 * 
-		 * alunos.remover("123.456"); alunos.exibir();
-		 * 
-		 * 
-		 * System.out.println("==============================================");
-		 * 
-		 * //criar lista de pessoas RepositorioPessoasArray pessoas = new
-		 * RepositorioPessoasArray(3);
-		 * 
-		 * pessoas.inserir(joao); pessoas.inserir(juliana); pessoas.inserir(p);
-		 * pessoas.toString();
-		 * 
-		 * 
-		 * System.out.println("==============================================");
-		 * 
-		 * pessoas.remover("123.456"); pessoas.toString();
-		 */
-		// BOTEI O COMENTARIO APARTIR DAQUI
-		// Scanner input = new Scanner(System.in);
 		int opcao;
 		do {
 			System.out.println("\n");
@@ -112,7 +69,6 @@ public class Program {
 	}
 
 	private static void exibirTodos() {
-		// System.out.println(array.toString());
 		PessoasDao pd = new PessoasDao();
 		int opcao;
 		System.out.println("\n");
@@ -154,7 +110,6 @@ public class Program {
 			System.out.print("Insira o curso do aluno");
 			PessoasDao ad = new PessoasDao();
 			Aluno A = new Aluno(nome, cpf, idade, curso);
-			/* System.out.print(A.toString()); */
 			try {
 				array.inserirPessoa(A);
 				list.inserirPessoa(A);
@@ -187,7 +142,6 @@ public class Program {
 			break;
 		}
 	}
-
 	public static void procurar() {
 		PessoasDao pd = new PessoasDao();
 		String cpf;
@@ -238,7 +192,6 @@ public class Program {
 		array.removerPessoa(cpf);
 		list.removerPessoa(cpf);
 	}
-
 	public Connection getConnection() {
 		try {
 			DriverManager.registerDriver(new com.mysql.jdbc.Driver());
